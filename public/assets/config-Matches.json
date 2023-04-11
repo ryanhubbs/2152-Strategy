@@ -1,0 +1,153 @@
+{
+  "heading": "2152 SMASH - Matches Scouting",
+  "logo": "logo.png",
+  "skipTeamSelection": false,
+  "pages": [
+    {
+      "name": "Setup & Autonomous",
+      "widgets": [
+        {
+          "name": "Scouter Name",
+          "type": "text",
+          "colspan": 2,
+          "validation": {
+            "comparison": "greater",
+            "value": 0
+          }
+        },
+        {
+          "name": "Starting Position",
+          "type": "positions",
+          "file": "field.png",
+          "height": 200,
+          "colspan": 2
+        },
+        {
+          "name": "Left Community",
+          "type": "checkbox"
+        },
+        {
+          "type": "picture",
+          "file": "grid.png",
+          "height": 300,
+          "row": 4,
+          "col": 3,
+          "rowspan": 4
+        },
+        {
+          "name": "Top Scored",
+          "type": "spinbox",
+          "prefix": "Auto",
+          "row": 4,
+          "col": 1
+        },
+        {
+          "name": "Middle Scored",
+          "type": "spinbox",
+          "prefix": "Auto"
+        },
+        {
+          "name": "Bottom Scored",
+          "type": "spinbox",
+          "prefix": "Auto"
+        },
+        {
+          "type": "spacer",
+          "height": 40
+        },
+        {
+          "name": "Docked To Charging Station",
+          "type": "checkbox",
+          "labelColspan": 2
+        },
+        {
+          "name": "Charging Station Engaged",
+          "type": "checkbox",
+          "labelColspan": 2
+        }
+      ]
+    },
+    {
+      "name": "Teleop",
+      "widgets": [
+        {
+          "type": "picture",
+          "file": "grid.png",
+          "height": 300,
+          "col": 3,
+          "rowspan": 4
+        },
+        {
+          "name": "Top Scored",
+          "type": "spinbox",
+          "row": 1,
+          "col": 1
+        },
+        {
+          "name": "Middle Scored",
+          "type": "spinbox"
+        },
+        {
+          "name": "Bottom Scored",
+          "type": "spinbox"
+        },
+        {
+          "name": "Links Scored",
+          "type": "spinbox"
+        },
+        {
+          "name": "Co-Op Bonus",
+          "type": "checkbox"
+        },
+        {
+          "name": "Defense Rating",
+          "type": "dropdown",
+          "options": [
+            "Not Played",
+            "Not Effective",
+            "Average",
+            "Very Effective"
+          ],
+          "labelColspan": 2,
+          "validation": {
+            "comparison": "greater",
+            "value": -1
+          }
+        }
+      ]
+    },
+    {
+      "name": "Endgame",
+      "widgets": [
+        {
+          "name": "Parking",
+          "type": "radio",
+          "options": [
+            "Docked+Engaged",
+            "Docked Only",
+            "Parked",
+            "None"
+          ],
+          "default": 3
+        },
+        {
+          "name": "Failed To Engage",
+          "type": "checkbox"
+        },
+        {
+          "name": "Robots Docked",
+          "type": "spinbox",
+          "max": 3
+        },
+        {
+          "name": "Mechanical Failures",
+          "type": "text"
+        },
+        {
+          "name": "Comments",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}
