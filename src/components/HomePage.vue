@@ -1,8 +1,9 @@
 <template>
-  <h1>2152 SMASH Scouting</h1>
+  <h1>2152 SMASH Strategy</h1>
   <img :src="absoluteLogoPath" alt="Cannot load logo file" class="center" width="300" height="75">
-  <h2>Scouting Forms</h2>
   
+  <input type="text" name="notes">
+
   <br>
   <br>
   <footer>
