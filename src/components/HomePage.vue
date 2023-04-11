@@ -2,7 +2,7 @@
   <h1>2152 SMASH Strategy</h1>
   <img :src="absoluteLogoPath" alt="Cannot load logo file" class="center" width="300" height="75">
   
-  <input type="text" name="notes">
+  <textarea name="notes" rows="4" cols="50" />
 
   <br>
   <br>
