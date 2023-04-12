@@ -18,7 +18,8 @@
     "ajv": "^8.12.0",
     "pinia": "^2.0.33",
     "vue": "^3.2.47",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vue-drawing-canvas": "1.0.14"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.55.0",
