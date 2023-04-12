@@ -2,8 +2,12 @@
   <h1>2152 SMASH Strategy</h1>
   <img :src="absoluteLogoPath" alt="Cannot load logo file" class="center" width="300" height="75">
   
+  <br>
   <textarea name="notes" rows="4" cols="50" />
-
+  <br>
+  <br>
+  <canvas width="200" height="100" style="border:1px solid #000000;">
+  </canvas>
   <br>
   <br>
   <footer>
