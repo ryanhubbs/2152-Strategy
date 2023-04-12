@@ -1,16 +1,17 @@
 <template>
-  <div>
+  <div class="page-container">
+    <br>
     <h1>2152 SMASH Strategy</h1>
     <img :src="absoluteLogoPath" alt="Cannot load logo file" class="center" width="300" height="75">
-  </div>
+    <br>
   <div id="app">
     <div class="flex-row">
       <div class="source">
         <vue-drawing-canvas
           ref="VueCanvasDrawing"
           v-model:image="image"
-          :width="600"
-          :height="400"
+          :width="781"
+          :height="339"
           :stroke-type="strokeType"
           :line-cap="lineCap"
           :line-join="lineJoin"
@@ -23,9 +24,6 @@
           :watermark="watermark"
           :initial-image="initialImage"
           saveAs="png"
-          :styles="{
-            border: 'solid 1px #000',
-          }"
           :lock="disabled"
           @mousemove="getCoordinate($event)"
           :additional-images="additionalImages"
@@ -157,13 +155,9 @@
       </div>
     </div>
   </div>
-  <br>
-  <textarea name="notes" rows="4" cols="50" />
-  <br>
-  <br>
 
-  <br>
-  <br>
+  <br><br><textarea name="notes" rows="15" cols="110" /><br><br>
+</div>
   <footer>
     <h5>Version 1.0.0</h5>
   </footer>
@@ -180,7 +174,6 @@ export default {
   },
   setup() {
     const absoluteLogoPath = computed(() => `${import.meta.env.BASE_URL}assets/home_icon.png`);
-
     return { absoluteLogoPath };
   },
   data() {
@@ -210,7 +203,7 @@ export default {
       lineCap: "square",
       lineJoin: "miter",
       backgroundColor: "#FFFFFF",
-      backgroundImage: null,
+      backgroundImage: computed(() => `${import.meta.env.BASE_URL}assets/field.png`),
       watermark: null,
       additionalImages: [],
     };
@@ -251,6 +244,15 @@ export default {
 </script>
 
 <style>
+h1 {
+  margin-top: 0;
+}
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -266,19 +268,7 @@ body {
   margin-top: 15px;
   margin-right: 10px;
 }
-.custom-href {
-  a:link { text-decoration: none; }
-  a:visited { text-decoration: none; }
-  a:hover { text-decoration: none; }
-  a:active { text-decoration: none; }
-}
-.link-list {
-  margin: 0;
 
-  li {
-    margin: 6px 0;
-  }
-}
 hr-foot {
     border: 0;
     height: 1px;
