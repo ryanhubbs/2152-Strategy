@@ -6,8 +6,10 @@
   <textarea name="notes" rows="4" cols="50" />
   <br>
   <br>
-  <canvas width="200" height="100" style="border:1px solid #000000;">
-  </canvas>
+  <canvas id="canvas" width="800" height="500"></canvas>
+  <input type="button" value="draw" onclick="use_tool('draw');" />
+  <input type="button" value="erase" onclick="use_tool('erase');" />
+  <div id="output"></div>
   <br>
   <br>
   <footer>
@@ -16,6 +18,59 @@
 </template>
 
 <script setup lang="ts">
+//Canvas
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+//Variables
+var canvasx = $(canvas).offset().left;
+var canvasy = $(canvas).offset().top;
+var last_mousex = last_mousey = 0;
+var mousex = mousey = 0;
+var mousedown = false;
+var tooltype = 'draw';
+
+//Mousedown
+$(canvas).on('mousedown', function(e) {
+    last_mousex = mousex = parseInt(e.clientX-canvasx);
+	last_mousey = mousey = parseInt(e.clientY-canvasy);
+    mousedown = true;
+});
+
+//Mouseup
+$(canvas).on('mouseup', function(e) {
+    mousedown = false;
+});
+
+//Mousemove
+$(canvas).on('mousemove', function(e) {
+    mousex = parseInt(e.clientX-canvasx);
+    mousey = parseInt(e.clientY-canvasy);
+    if(mousedown) {
+        ctx.beginPath();
+        if(tooltype=='draw') {
+            ctx.globalCompositeOperation = 'source-over';
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 3;
+        } else {
+            ctx.globalCompositeOperation = 'destination-out';
+            ctx.lineWidth = 10;
+        }
+        ctx.moveTo(last_mousex,last_mousey);
+        ctx.lineTo(mousex,mousey);
+        ctx.lineJoin = ctx.lineCap = 'round';
+        ctx.stroke();
+    }
+    last_mousex = mousex;
+    last_mousey = mousey;
+    //Output
+    $('#output').html('current: '+mousex+', '+mousey+'<br/>last: '+last_mousex+', '+last_mousey+'<br/>mousedown: '+mousedown);
+});
+
+//Use draw|erase
+use_tool = function(tool) {
+    tooltype = tool; //update
+}
+
 // Fetch logo path
 const absoluteLogoPath = $computed(() => `${import.meta.env.BASE_URL}assets/home_icon.png`);
 
@@ -47,5 +102,10 @@ const list = $ref(textData.split("\n").map(value => value.trim()).filter(value =
 hr-foot {
     border: 0;
     height: 1px;
+}
+
+canvas {
+    cursor: crosshair;
+    border: 1px solid #000000;
 }
 </style>
