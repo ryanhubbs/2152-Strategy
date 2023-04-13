@@ -25,9 +25,9 @@ export default defineConfig({
     VitePWA({
       includeAssets: ["assets/*", "icons/*"],
       manifest: {
-        name: "SMASH Scouting",
-        short_name: "Scouting",
-        description: "A scouting app for FRC Team 2152",
+        name: "SMASH Strategy",
+        short_name: "Strategy",
+        description: "A strategy app for FRC Team 2152",
         theme_color: "#ff0090",
         background_color: "#ff0090",
         icons: [
